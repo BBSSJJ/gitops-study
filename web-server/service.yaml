@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-server
+  namespace: my-app
+  labels:
+    app: web-server
+spec:
+  type: ClusterIP
+  selector:
+    app: web-server
+  ports:
+    - name: http
+      port: 3000          # 서비스 포트
+      targetPort: 80    # 컨테이너 리스닝 포트 (필요 시 수정)

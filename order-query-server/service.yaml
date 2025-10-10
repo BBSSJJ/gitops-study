@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: order-query-server
+  namespace: my-app
+  labels:
+    app: order-query-server
+spec:
+  type: ClusterIP
+  selector:
+    app: order-query-server
+  ports:
+    - name: http
+      port: 8080
+      targetPort: 8081

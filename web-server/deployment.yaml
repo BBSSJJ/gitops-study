@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-server
+  namespace: my-app
+  labels:
+    app: web-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web-server
+  template:
+    metadata:
+      labels:
+        app: web-server
+    spec:
+      containers:
+        - name: web-server
+          image: 0326bsj/web-server:latest   # ← 본인 Docker Hub로 교체
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80                    # 컨테이너 리스닝 포트 (필요 시 수정)
+          envFrom:
+            - configMapRef:
+                name: app-config
+            - secretRef:
+                name: app-secret

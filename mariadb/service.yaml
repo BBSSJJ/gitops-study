@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: mariadb-headless
+  namespace: my-app
+  labels:
+    app: mariadb
+spec:
+  clusterIP: None  # StatefulSet용 헤드리스 서비스
+  selector:
+    app: mariadb
+  ports:
+    - name: mysql
+      port: 3306
+      targetPort: 3306
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mariadb
+  namespace: my-app
+  labels:
+    app: mariadb
+spec:
+  type: ClusterIP
+  selector:
+    app: mariadb
+  ports:
+    - name: mysql
+      port: 3306
+      targetPort: 3306

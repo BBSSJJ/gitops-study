@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-command-server
+  namespace: my-app
+  labels:
+    app: order-command-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: order-command-server
+  template:
+    metadata:
+      labels:
+        app: order-command-server
+    spec:
+      containers:
+        - name: order-command-server
+          image: 0326bsj/order-command-server:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: app-config
+            - secretRef:
+                name: app-secret

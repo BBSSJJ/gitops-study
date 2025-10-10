@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-query-server
+  namespace: my-app
+  labels:
+    app: order-query-server
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: order-query-server
+  template:
+    metadata:
+      labels:
+        app: order-query-server
+    spec:
+      containers:
+        - name: order-query-server
+          image: 0326bsj/order-query-server:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8081
+          envFrom:
+            - configMapRef:
+                name: app-config
