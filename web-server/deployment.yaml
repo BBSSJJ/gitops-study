@@ -21,8 +21,3 @@ spec:
           imagePullPolicy: Always
           ports:
             - containerPort: 80                    # 컨테이너 리스닝 포트 (필요 시 수정)
-          envFrom:
-            - configMapRef:
-                name: app-config
-            - secretRef:
-                name: app-secret

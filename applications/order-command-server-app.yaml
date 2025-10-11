@@ -1,0 +1,25 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: order-command-server
+  namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+    # Image Updater 설정
+    argocd-image-updater.argoproj.io/image-list: order-command=yourdockerid/order-command-server
+    argocd-image-updater.argoproj.io/order-command.update-strategy: latest
+    argocd-image-updater.argoproj.io/order-command.allow-tags: regexp:^.*$
+    argocd-image-updater.argoproj.io/order-command.write-back-method: git:secret:argocd/image-updater-credentials
+spec:
+  project: my-app-project
+  source:
+    repoURL: https://github.com/BBSSJJ/gitops-study
+    targetRevision: HEAD
+    path: order-command-server
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: my-app
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
