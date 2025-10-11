@@ -1,0 +1,3 @@
+kustomize:
+  images:
+  - 0326bsj/order-command-server:latest
