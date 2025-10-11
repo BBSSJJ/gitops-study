@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: order-query-server
-          image: 0326bsj/order-query-server:latest
+          image: 0326bsj/order-query-server
           imagePullPolicy: Always
           ports:
             - containerPort: 8081
