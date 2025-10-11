@@ -5,8 +5,6 @@ namespace: my-app
 resources:
   - deployment.yaml
   - service.yaml
-  - ../config/app-config.yaml
-  - ../secret/app-secret.yaml
 
 images:
   - name: 0326bsj/order-query-server
