@@ -15,6 +15,7 @@ spec:
     repoURL: https://github.com/BBSSJJ/gitops-study
     targetRevision: HEAD
     path: order-query-server
+    kustomize: {}
   destination:
     server: https://kubernetes.default.svc
     namespace: my-app
