@@ -6,7 +6,7 @@ metadata:
   annotations:
     argocd.argoproj.io/sync-wave: "0"
     argocd-image-updater.argoproj.io/image-list: order-query=0326bsj/order-query-server
-    argocd-image-updater.argoproj.io/order-query.update-strategy: latest
+    argocd-image-updater.argoproj.io/order-query.update-strategy: newest-build
     argocd-image-updater.argoproj.io/write-back-method: git
     argocd-image-updater.argoproj.io/git-branch: main
     argocd-image-updater.argoproj.io/git-user: argocd-image-updater
