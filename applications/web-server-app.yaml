@@ -7,8 +7,10 @@ metadata:
     argocd.argoproj.io/sync-wave: "1"
     argocd-image-updater.argoproj.io/image-list: web=0326bsj/web-server
     argocd-image-updater.argoproj.io/web.update-strategy: latest
-    argocd-image-updater.argoproj.io/web.allow-tags: regexp:^.*$
-    argocd-image-updater.argoproj.io/web.write-back-method: git:secret:argocd/image-updater-credentials
+    argocd-image-updater.argoproj.io/write-back-method: git
+    argocd-image-updater.argoproj.io/git-branch: main
+    argocd-image-updater.argoproj.io/git-user: BBSSJJ
+    argocd-image-updater.argoproj.io/git-email: bdhbsj@naver.com
 spec:
   project: my-app-project
   source:
