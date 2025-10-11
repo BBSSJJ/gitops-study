@@ -1,0 +1,3 @@
+kustomize:
+  images:
+  - 0326bsj/order-command-server:20640cd2d9f6ae4c6b27a0a18f403993b16024c9
