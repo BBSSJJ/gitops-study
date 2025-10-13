@@ -1,15 +1,12 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: my-app
-
 resources:
   - deployment.yaml
   - service.yaml
-
 images:
   - name: 0326bsj/order-command-server
-    newTag: latest
-
+    newTag: 20640cd2d9f6ae4c6b27a0a18f403993b16024c9
 commonLabels:
   app.kubernetes.io/part-of: my-app
   app.kubernetes.io/name: order-command-server
