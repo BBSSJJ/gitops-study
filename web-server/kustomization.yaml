@@ -6,7 +6,7 @@ resources:
   - service.yaml
 images:
   - name: 0326bsj/web-server
-    newTag: a103455429aa7e1f44344bb6aa5bd7e8dc93ca45
+    newTag: a0aaa058ea239e69b34344169f4064d7b58fad28
 commonLabels:
   app.kubernetes.io/part-of: my-app
   app.kubernetes.io/name: web-server
