@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: order-command-server
-          image: 0326bsj/order-command-server
+          image: 0326bsj/order-command-server:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 8080
