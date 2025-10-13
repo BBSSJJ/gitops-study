@@ -6,7 +6,6 @@ resources:
   - service.yaml
 images:
   - name: 0326bsj/order-query-server
-    newName: 0326bsj/order-query-server
     newTag: c1ea625ebeca29d3f861ced6487a21dfc9e8b2e7
 commonLabels:
   app.kubernetes.io/part-of: my-app
