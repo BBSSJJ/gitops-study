@@ -17,4 +17,5 @@ spec:
         bootstrapServers: dev-kafka-kafka-bootstrap.kafka.svc.cluster.local:9092
         topic: new-order
         consumerGroup: order-group
-        lagThreshold: "1"   # lag이 10개 초과 시 scale-up
+        lagThreshold: "5"   # lag이 10개 초과 시 scale-up
+        activationLagThreshold: "1"
