@@ -6,7 +6,7 @@ resources:
   - service.yaml
 images:
   - name: 0326bsj/order-command-server
-    newTag: 6debec4cc14412cc665b151e3c9b54d33269409f
+    newTag: d65da4be383186512d6d5745fe033449c19bac76
 commonLabels:
   app.kubernetes.io/part-of: my-app
   app.kubernetes.io/name: order-command-server
