@@ -9,7 +9,7 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: order-query-server
-  minReplicaCount: 0         # 일이 없으면 완전 0
+  minReplicaCount: 1         # 일이 없으면 완전 0
   maxReplicaCount: 10
   triggers:
     - type: kafka
@@ -17,4 +17,4 @@ spec:
         bootstrapServers: dev-kafka-kafka-bootstrap.kafka.svc.cluster.local:9092
         topic: new-order
         consumerGroup: order-group
-        lagThreshold: "2"   # lag이 10개 초과 시 scale-up
+        lagThreshold: "1"   # lag이 10개 초과 시 scale-up

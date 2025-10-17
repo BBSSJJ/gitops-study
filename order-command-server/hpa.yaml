@@ -8,18 +8,18 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: order-command-server
-  minReplicas: 1
-  maxReplicas: 4
+  minReplicas: 2
+  maxReplicas: 6
   metrics:
     - type: Resource
       resource:
         name: cpu
         target:
           type: Utilization
-          averageUtilization: 80
+          averageUtilization: 60
   behavior:
     scaleDown:
-      stabilizationWindowSeconds: 300   # 5분간 관찰 후 축소
+      stabilizationWindowSeconds: 180   # 3분간 관찰 후 축소
       policies:
         - type: Percent
           value: 50                     # 1회에 최대 50% 감소
@@ -28,6 +28,6 @@ spec:
       stabilizationWindowSeconds: 0
       policies:
         - type: Percent
-          value: 100                    # 1분 내 최대 2배 증가
-          periodSeconds: 60
+          value: 200                    # 20초 내 최대 2배 증가
+          periodSeconds: 20
 
