@@ -16,10 +16,10 @@ spec:
         name: cpu
         target:
           type: Utilization
-          averageUtilization: 70
+          averageUtilization: 80
   behavior:
     scaleDown:
-      stabilizationWindowSeconds: 180   # 3분간 관찰 후 축소
+      stabilizationWindowSeconds: 30    # 3분간 관찰 후 축소
       policies:
         - type: Percent
           value: 50                     # 1회에 최대 50% 감소
