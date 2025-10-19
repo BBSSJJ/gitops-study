@@ -40,7 +40,7 @@ spec:
       canaryService: order-command-server-canary
       trafficRouting:
         nginx:
-          stableIngress: order-command-ingress   # 기존 Ingress 이름으로 변경
+          stableIngress: my-app-public
       steps:
         - setWeight: 20   # 20% 트래픽을 Canary로 보냄
         - pause: {duration: 30s}
