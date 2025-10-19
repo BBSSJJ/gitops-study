@@ -9,6 +9,8 @@ spec:
   selector:
     matchLabels:
       app: order-command-server
+      app.kubernetes.io/name: order-command-server
+      app.kubernetes.io/part-of: my-app
   template:
     metadata:
       labels:
