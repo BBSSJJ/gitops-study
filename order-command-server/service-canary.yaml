@@ -1,23 +1,6 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: order-command-server
-  namespace: my-app
-  labels:
-    app: order-command-server
-spec:
-  selector:
-    app: order-command-server
-  ports:
-    - name: http
-      port: 8080
-      targetPort: 8080
-
----
-
-apiVersion: v1
-kind: Service
-metadata:
   name: order-command-server-canary
   namespace: my-app
   labels:
