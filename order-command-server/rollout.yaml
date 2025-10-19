@@ -15,6 +15,8 @@ spec:
     metadata:
       labels:
         app: order-command-server
+        app.kubernetes.io/name: order-command-server
+        app.kubernetes.io/part-of: my-app
     spec:
       containers:
         - name: order-command-server
