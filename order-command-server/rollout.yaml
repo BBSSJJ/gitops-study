@@ -1,0 +1,49 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: order-command-server
+  namespace: my-app
+spec:
+  replicas: 3
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: order-command-server
+  template:
+    metadata:
+      labels:
+        app: order-command-server
+    spec:
+      containers:
+        - name: order-command-server
+          image: 0326bsj/order-command-server:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          envFrom:
+            - configMapRef:
+                name: app-config
+            - secretRef:
+                name: app-secret
+          resources:
+            requests:
+              cpu: 400m
+              memory: 512Mi
+            limits:
+              cpu: 800m
+              memory: 1Gi
+
+  strategy:
+    canary:
+      # Stable/Canary 트래픽을 분리할 서비스 이름 (둘 다 따로 만들어야 함)
+      stableService: order-command-server
+      canaryService: order-command-server-canary
+      trafficRouting:
+        nginx:
+          stableIngress: my-app-public
+      steps:
+        - setWeight: 20   # 20% 트래픽을 Canary로 보냄
+        - pause: {duration: 30s}
+        - setWeight: 50   # 절반
+        - pause: {duration: 60s}
+        - setWeight: 100  # 전체 전환
