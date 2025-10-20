@@ -8,7 +8,7 @@ resources:
   - hpa.yaml
 images:
   - name: 0326bsj/order-command-server
-    newTag: fc0515a9c304486d5ecf596e3064c8c23546b33f
+    newTag: a86e4ca85d04176dcc3ef0433f48e790ca0ee6cb
 commonLabels:
   app.kubernetes.io/part-of: my-app
   app.kubernetes.io/name: order-command-server
